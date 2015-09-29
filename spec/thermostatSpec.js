@@ -5,25 +5,25 @@ describe("Thermostat", function() {
   });
 
   it("should start at 20 degrees", function() {
-    expect(thermostat.temp).toEqual(20);
+    expect(thermostat.temp).toBe(20);
   });
 
   it(
     "should increase the temperature by one degree when the up button is pushed",
     function() {
       thermostat.up();
-      expect(thermostat.temp).toEqual(21);
+      expect(thermostat.temp).toBe(21);
     });
 
   it(
     "should decrease the temperature by one degree when the down button is pushed",
     function() {
       thermostat.down();
-      expect(thermostat.temp).toEqual(19);
+      expect(thermostat.temp).toBe(19);
     });
 
   it("has a minimum temperature of 10 degrees", function() {
-    expect(thermostat.MIN_TEMP).toEqual(10);
+    expect(thermostat.MIN_TEMP).toBe(10);
   });
 
   it("cannot go below the minimum temperature", function() {
@@ -67,4 +67,8 @@ describe("Thermostat", function() {
     expect(function(){thermostat.up();}).toThrow("Cannot exceed the maximum tempreture");
   });
 
+  it("tempreture can be reset to 20 degrees by hitting the reset button", function() {
+    thermostat.reset();
+    expect(thermostat.temp).toBe(20);
+  });
 });
