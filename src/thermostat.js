@@ -1,32 +1,36 @@
 function Thermostat() {
   this.temp = 20;
-  this.minTemp = 10;
-  this.maxTemp = 32;
-  this.powerSavingModeMax = 25;
+  this.MIN_TEMP = 10;
+  this.maxTemp = 25;
   this.powerSavingMode = true;
 }
-// && this.temp >= this.powerSavingModeMax)
-Thermostat.prototype.increaseByOne = function() {
-  if (this.powerSavingMode === true && this.temp >= this.powerSavingModeMax) {
-    throw new Error("Power Saving Mode on, maximum temperature reached");
-  } else {
-    console.log(this.temp)
+
+Thermostat.prototype.up = function() {
+  if (this.temp < this.maxTemp) {
     this.temp += 1;
-  }
-};
-
-Thermostat.prototype.decreaseByOne = function() {
-  if (this.temp <= this.minTemp) {
-    throw new Error("Minimum temperature reached");
   } else {
-    this.temp -= 1;
+    throw ("Cannot exceed the maximum tempreture");
   }
 };
 
-Thermostat.prototype.turnOffPowerSavingMode = function() {
+Thermostat.prototype.down = function() {
+    if (this.temp > this.MIN_TEMP) {
+      this.temp -= 1;
+    } else {
+      throw ("Minimum temperature reached");
+    }
+  };
+
+Thermostat.prototype.powerSavingOff = function() {
+  this.maxTemp = 32;
   this.powerSavingMode = false;
 };
 
-Thermostat.prototype.turnOnPowerSavingMode = function() {
+Thermostat.prototype.powerSavingOn = function() {
+  this.maxTemp = 25;
   this.powerSavingMode = true;
 };
+
+// Thermostat.prototype.turnOnPowerSavingMode = function() {
+//   this.powerSavingMode = true;
+// };
