@@ -46,5 +46,4 @@ Thermostat.prototype.energyRating = function() {
     return "high-usage";
   }
 };
-
-thermostat = new Thermostat();
+var thermostat = new Thermostat();
