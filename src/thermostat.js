@@ -34,3 +34,15 @@ Thermostat.prototype.powerSavingOn = function() {
 Thermostat.prototype.reset = function() {
   this.temp = 20;
 };
+
+Thermostat.prototype.energyRating = function() {
+  if (this.temp < 18) {
+    return "low-usage";
+  }
+  else if (this.temp < 25) {
+    return "medium-usage";
+  }
+  else {
+    return "high-usage";
+  }
+};

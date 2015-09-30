@@ -1,4 +1,5 @@
 describe("Thermostat", function() {
+  var thermostat;
 
   beforeEach(function() {
     thermostat = new Thermostat();
@@ -71,4 +72,25 @@ describe("Thermostat", function() {
     thermostat.reset();
     expect(thermostat.temp).toBe(20);
   });
+});
+
+describe("reflects energy usage with a rating", function() {
+    var thermostat;
+
+    beforeEach(function() {
+      thermostat = new Thermostat();
+    });
+
+    it("less than 18 degrees is considered low usage", function() {
+      thermostat.temp = 17;
+      expect(thermostat.energyRating()).toBe("low-usage");
+    });
+    it("less than 25 degrees is considered medium usage", function() {
+      thermostat.temp = 24;
+      expect(thermostat.energyRating()).toBe("medium-usage");
+    });
+    it("25 and over is considered high usage", function() {
+      thermostat.temp = 31;
+      expect(thermostat.energyRating()).toBe("high-usage");
+    });
 });
