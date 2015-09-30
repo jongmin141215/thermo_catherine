@@ -59,13 +59,13 @@ describe("Thermostat", function() {
   it("temperature cannot exceed maximum of 25 degrees in power saving mode", function() {
     thermostat.powerSavingOn();
     thermostat.temp = 25;
-    expect(function(){thermostat.up();}).toThrow("Cannot exceed the maximum tempreture");
+    expect(function(){thermostat.up();}).toThrow("Cannot exceed the maximum temperature");
   });
 
   it("temperature cannot exceed maximum of 32 degrees when power saving mode is off", function() {
     thermostat.powerSavingOff();
     thermostat.temp = 32;
-    expect(function(){thermostat.up();}).toThrow("Cannot exceed the maximum tempreture");
+    expect(function(){thermostat.up();}).toThrow("Cannot exceed the maximum temperature");
   });
 
   it("tempreture can be reset to 20 degrees by hitting the reset button", function() {

@@ -9,7 +9,7 @@ Thermostat.prototype.up = function() {
   if (this.temp < this.maxTemp) {
     this.temp += 1;
   } else {
-    throw ("Cannot exceed the maximum tempreture");
+    throw ("Cannot exceed the maximum temperature");
   }
 };
 
@@ -46,3 +46,5 @@ Thermostat.prototype.energyRating = function() {
     return "high-usage";
   }
 };
+
+thermostat = new Thermostat();
