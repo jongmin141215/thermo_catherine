@@ -46,4 +46,9 @@ Thermostat.prototype.energyRating = function() {
     return "high-usage";
   }
 };
+
+Thermostat.prototype.powerSaveToggle = function() {
+
+};
+
 var thermostat = new Thermostat();
