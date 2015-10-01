@@ -1,4 +1,4 @@
-(function() {
+(function () {
   var URL, Weather, http, isModule;
 
   isModule = typeof module !== "undefined" && module.exports;

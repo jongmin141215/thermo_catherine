@@ -9,7 +9,25 @@
   <script language='JavaScript' type='text/javascript' src="../../app.js"></script>
   <script language='JavaScript' type='text/javascript' src="../../src/thermostat.js"></script>
 </head>
+<script>
+  function cityResult(form) {
+    var differentCity = form.city.value;
 
+    var urlBeg = 'http://api.openweathermap.org/data/2.5/weather?q={';
+    var cityName = differentCity;
+    var urlEnd = '}';
+    var urlFull = urlBeg + cityName + urlEnd;
+    $.ajax(urlFull, {
+      success: function(data) {
+      console.log(data);
+      $('#weatherResult').html(data.main.temp - 273.15);
+    }
+    })
+
+  };
+
+
+</script>
 <body>
   <style>
   #degrees {
@@ -28,8 +46,12 @@
   <input id='powersave' type="checkbox" value="PowerSave" checked> Power saving mode<br>
   <input id='reset' type='button' value='Reset'>
   <div id='weather'></div>
-
-
+  <form method="GET" action='' name='myForm'>
+    Choose a different city:
+    <input type="text" name="city">
+    <input type="button" id="searchButton" name='button' value="Click" onClick="cityResult(this.form)">
+  </form>
+  <div id="weatherResult"></div>
 </body>
 
 </html>

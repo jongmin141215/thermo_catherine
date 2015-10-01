@@ -46,8 +46,16 @@ displayEnergyUsage();
     $( '#temp' ).text(thermostat.temp);
   });
 
-  Weather.getCurrent("Kansas City", function(current) {
-    $('#weather').text(["Currently:",Math.round((current.temperature() - 272.15)),"ºC","and",current.conditions()].join(" "));
-  });
+  var urlBeg = 'http://api.openweathermap.org/data/2.5/weather?q={';
+  var cityName = 'london';
+  var urlEnd = '}';
+  var urlFull = urlBeg + cityName + urlEnd;
+  $.ajax(urlFull, {
+    success: function(data) {
+    console.log(data);
+    $('#weather').html(data.main.temp - 273.15);
+  }
+  })
+
 
 });
