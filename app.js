@@ -6,9 +6,9 @@ displayEnergyUsage();
 
   function displayEnergyUsage() {
     if(thermostat.energyRating() == 'low-usage') {
-      $( '#degrees' ).css({ 'color': 'green'});
+      $( '#degrees' ).css({ 'color': '#04B431'});
     } else if(thermostat.energyRating() == 'medium-usage') {
-      $( '#degrees' ).css({ 'color': 'yellow'});
+      $( '#degrees' ).css({ 'color': '#FFBF00'});
     }
       else {
       $( '#degrees' ).css({ 'color': 'red'});
@@ -57,6 +57,13 @@ displayEnergyUsage();
     // console.log(data.weather[0].description);
   }
 });
+
+  // $('#searchButton').click(function(form) {
+  //   console.log('hi');
+  //   console.log(form);
+  //   cityResult(form);
+  // })
+
 
 
 });
