@@ -47,7 +47,7 @@ displayEnergyUsage();
   });
 
   Weather.getCurrent("Kansas City", function(current) {
-    $('#weather').text(["currently:",current.temperature(),"and",current.conditions()].join(" "));
+    $('#weather').text(["Currently:",Math.round((current.temperature() - 272.15)),"ºC","and",current.conditions()].join(" "));
   });
 
 });
