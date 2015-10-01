@@ -46,8 +46,8 @@ displayEnergyUsage();
     $( '#temp' ).text(thermostat.temp);
   });
 
-  // $( '#degrees' )
-
-
+  Weather.getCurrent("Kansas City", function(current) {
+    $('#weather').text(["currently:",current.temperature(),"and",current.conditions()].join(" "));
+  });
 
 });
