@@ -20,7 +20,7 @@
     $.ajax(urlFull, {
       success: function(data) {
       console.log(data);
-      $('#weatherResult').html(data.main.temp - 273.15);
+      $('#weatherResult').html( "In " + cityName + ": " + Math.round((data.main.temp - 273.15)) + ", " + data.weather[0].description);
     }
     })
 

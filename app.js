@@ -53,9 +53,10 @@ displayEnergyUsage();
   $.ajax(urlFull, {
     success: function(data) {
     console.log(data);
-    $('#weather').html(data.main.temp - 273.15);
+    $('#weather').html( "In London: " + Math.round((data.main.temp - 273.15)) + ", " + data.weather[0].description);
+    // console.log(data.weather[0].description);
   }
-  })
+});
 
 
 });
